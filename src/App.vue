@@ -1,10 +1,16 @@
 <script setup lang="ts">
-import InputField from './components/inputField.vue'
-import TaskList from './components/taskList.vue'
+import InputField from './components/InputField.vue'
+import TaskList from './components/TaskList.vue'
 import { ref } from 'vue';
 
-// Initialising the list of tasks already submitted using props
-const storedTasks = ref<string[]>(JSON.parse(localStorage.getItem('savedTasks') || '[]'));
+export interface Task {
+  name: string;
+  completed: boolean;
+  taskId: number;
+}
+
+// Storing the already submitted tasks in the main App.vue file to ensure accessibility across different components
+const storedTasks = ref<Task[]>(JSON.parse(localStorage.getItem('savedTasks') || '[]'));
 
 </script>
 
