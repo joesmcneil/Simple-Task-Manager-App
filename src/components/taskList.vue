@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { Task } from '../App.vue';
 
+
 // Registering props to this component
 const props = defineProps<{
   storedTasks: Task[]
@@ -20,12 +21,7 @@ const removeTask = (index:number) => {
 const completeToggle = (index:number) => {
   let taskAtIndex = storedTasks.value[index];
   // Locating the object based on the index taken from the click and setting it to complete = true if it is already false
-  if (taskAtIndex.completed === false) {
-    taskAtIndex.completed = true;
-  } else {
-  // If the task is set to true already, set to false
-    taskAtIndex.completed = false;
-  }
+  taskAtIndex.completed = !taskAtIndex.completed;
 };
 
 </script>
@@ -38,9 +34,12 @@ const completeToggle = (index:number) => {
         {{ task.name }}
         <div class="listButtons">
         <input type="checkbox" @click="completeToggle(index)" v-model="task.completed" class="taskCompleteCheckbox">
-        <button @click="removeTask(index)" class="removeTaskButton">X</button>
+        <button @click="removeTask(index)" class="removeTaskButton">
+          <img :src="'/Cross.svg'" alt="Delete button" width="20">
+        </button>
         </div>
       </div>
+      <hr>
     </li>
   </ul>
   </div>

@@ -15,7 +15,7 @@ const inputTask = ref<string>('');
 const storedTasks = ref<Task[]>(props.storedTasks);
 
 const addTask = () => {
-  // Taking the Task interface established in App.vue to create a new object based on the user's inputted task
+  // Taking the Task interface from props to create a new object based on the user's inputted task
   const newTask: Task ={
     name: inputTask.value,
     completed: false,
