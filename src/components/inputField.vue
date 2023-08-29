@@ -7,14 +7,15 @@ const props = defineProps<{
   storedTasks: Task[]
 }>();
 
+// Setting a counter to keep track of taskIds being distributed
 let taskIdCounter = ref<number>(0);
 
 // Variables to hold the ref values for the input task field and for the stored tasks taken from props
 const inputTask = ref<string>('');
 const storedTasks = ref<Task[]>(props.storedTasks);
-console.log(storedTasks);
 
 const addTask = () => {
+  // Taking the Task interface established in App.vue to create a new object based on the user's inputted task
   const newTask: Task ={
     name: inputTask.value,
     completed: false,
@@ -24,10 +25,9 @@ const addTask = () => {
     // If the input field is populated and does not have empty spaces, push the value to the storedTasks array
     storedTasks.value.push(newTask);
     localStorage.setItem('savedTasks', JSON.stringify(storedTasks.value));
-    // Clear the input field after submitting a new task
+    // Clear the input field after submitting a new task and incrementing the taskId counter to ensure unique task ids
     inputTask.value = '';
     taskIdCounter.value++;
-    console.log(taskIdCounter);
   }
 };
 
@@ -36,10 +36,10 @@ const addTask = () => {
 <template>
   <div class="taskInputContainer">
     <div class="textInputContainer">
-      <input type="text" v-model="inputTask" class="taskInput">
+      <input type="text" v-model="inputTask" class="taskInput" placeholder="Enter your task">
   </div>
     <div class="newTaskButtonContainer">
-      <button @click="addTask">Add new task</button>
+      <button @click="addTask">Add task</button>
   </div>
 </div>
 </template>
