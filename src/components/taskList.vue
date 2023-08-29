@@ -14,24 +14,23 @@ console.log(storedTasks);
 const removeTask = (index:number) => {
   storedTasks.value.splice(index, 1);
   localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
-  console.log(index);
-  console.log(localStorage.savedTasks);
 }
 
 </script>
 
 <template>
   <div>
-   <p>Stored tasks: {{ storedTasks }} </p>
     <ul>
-    <li v-for="(task, index) in storedTasks" :key="index" :id:number=task.taskId>{{ task.name  }}
-      <input type="checkbox" v-model="task.completed">
-      <button @click="removeTask(index)"></button>
+    <li v-for="(task, index) in storedTasks" :key="index" class="taskItemActive" :id:number=task.taskId>{{ task.name  }}
+      <input type="checkbox" v-model="task.completed" class="taskCompleteCheckbox">
+      <button @click="removeTask(index)" class="removeTaskButton"></button>
     </li>
    </ul>
   </div>
 </template>
 
 <style scoped>
+
+
 
 </style>

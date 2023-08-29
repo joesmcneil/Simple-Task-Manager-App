@@ -15,16 +15,16 @@ const storedTasks = ref<Task[]>(JSON.parse(localStorage.getItem('savedTasks') ||
 </script>
 
 <template>
-  <div>
+  <div class="mainContainer">
   <header>
     <h1>
-    Simple Task Manager App
+    Simple Task Manager
     </h1>
   </header>
     <div class="inputContainer">
       <InputField :storedTasks="storedTasks"/>
     </div>
-    <div class="taskList">
+    <div class="taskListContainer">
       <TaskList :storedTasks="storedTasks"/>
     </div>
   </div>

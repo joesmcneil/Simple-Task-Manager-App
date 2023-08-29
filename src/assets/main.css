@@ -1,1 +1,77 @@
 
+body {
+    background-color: white;
+    margin: 0;
+}
+
+h1 {
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+    padding-top: 150px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+}
+
+input.taskInput { 
+    border-radius: 5px;
+    height: 50px;
+    font-size: 30px;
+  }
+
+.taskInputContainer {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+}
+
+.textInputContainer {
+    width: fit-content;
+    margin-right: 1rem;
+}
+
+.newTaskButtonContainer {
+    width: fit-content;
+}
+
+.taskListContainer {
+    margin-top: 50px;
+}
+
+button {
+    border-radius: 5px;
+    height: 100%;
+
+}
+
+.removeTaskButton {
+    border-radius: 5px;
+    height: 100%;
+}
+
+.taskItemActive {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: black;
+    list-style-type: none;
+}
+
+.taskItemComplete {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: black;
+    text-decoration: line-through;
+}

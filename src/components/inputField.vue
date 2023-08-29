@@ -34,12 +34,18 @@ const addTask = () => {
 </script>
 
 <template>
-  <div>
-  <input type="text" v-model="inputTask" class="taskInput">
-  <button @click="addTask">Add new task</button>
+  <div class="taskInputContainer">
+    <div class="textInputContainer">
+      <input type="text" v-model="inputTask" class="taskInput">
   </div>
+    <div class="newTaskButtonContainer">
+      <button @click="addTask">Add new task</button>
+  </div>
+</div>
 </template>
 
 <style scoped>
+
+
 
 </style>
