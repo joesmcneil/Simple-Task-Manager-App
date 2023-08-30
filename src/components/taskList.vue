@@ -28,13 +28,12 @@ const removeTask = (index:number) => {
   localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
 }
 
-const completeToggle = (index:number) => {
-  let taskAtIndex = storedTasks.value[index];
-  // Locating the object based on the index taken from the click and setting it to complete = true if it is already false
-  taskAtIndex.completed = !taskAtIndex.completed;
-  storedTasks.value.splice(index, 1, taskAtIndex);
-  // Updating localStorage with the updated storedTasks array
-  localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
+const completeToggle = (taskId: number) => {
+  const task = storedTasks.value.find(task => task.taskId === taskId);
+  if (task) {
+    task.completed = !task.completed;
+    localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
+  }
 };
 
 watchEffect(() => {

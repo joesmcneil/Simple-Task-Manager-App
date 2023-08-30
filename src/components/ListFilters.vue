@@ -11,6 +11,7 @@ const filterSet = (filter:string) => {
 
   watchEffect(() => {
   console.log('filterStatus changed:', setFilter);
+  window.location.reload();
 });
 
 };
