@@ -23,21 +23,22 @@ const filteredTasks = computed(() => {
 
 const removeTask = (index:number) => {
   // Removing the task by finding the object on click and removing it from the storedTasks array of objects
-  storedTasks.value.splice(index, 1);
+  filteredTasks.value.splice(index, 1);
   // Updating localStorage to the modified array value
-  localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
+  localStorage.setItem("savedTasks", JSON.stringify(filteredTasks.value));
 }
 
-const completeToggle = (taskId: number) => {
-  const task = storedTasks.value.find(task => task.taskId === taskId);
-  if (task) {
-    task.completed = !task.completed;
-    localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
-  }
+const completeToggle = (index:number) => {
+  let taskAtIndex = storedTasks.value[index];
+  // Locating the object based on the index taken from the click and setting it to complete = true if it is already false
+  taskAtIndex.completed = !taskAtIndex.completed;
+  filteredTasks.value.splice(index, 1, taskAtIndex);
+  // Updating localStorage with the updated storedTasks array
+  localStorage.setItem("savedTasks", JSON.stringify(filteredTasks.value));
 };
 
 watchEffect(() => {
-  console.log('filterStatus changed:', filterStatus.value);
+  console.log('filterStatus changed:', storedTasks.value);
 });
 
 </script>
