@@ -22,6 +22,9 @@ const completeToggle = (index:number) => {
   let taskAtIndex = storedTasks.value[index];
   // Locating the object based on the index taken from the click and setting it to complete = true if it is already false
   taskAtIndex.completed = !taskAtIndex.completed;
+  storedTasks.value.splice(index, 1, taskAtIndex);
+  // Updating localStorage with the modified storedTasks array
+  localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
 };
 
 </script>

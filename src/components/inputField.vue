@@ -7,8 +7,27 @@ const props = defineProps<{
   storedTasks: Task[]
 }>();
 
+const retrieveFinalTaskId = () => {
+  // Getting the savedTasks array as a JSON from localStorage
+  const savedTasksJSON = localStorage.getItem('savedTasks');
+  // If the JSON exists, parse it and assign it to a the savedTasks variable
+  if (savedTasksJSON) {
+    const savedTasks: Task[] = JSON.parse(savedTasksJSON);
+    // If the parsed JSON contains 1 or more tasks, get the taskId of the last indexed item and return it
+    if (savedTasks.length > 0) {
+      const lastTaskId = savedTasks[savedTasks.length - 1].taskId;
+      return lastTaskId;
+      // In all other cases, return 0
+    } else {
+        return 0;
+    }
+  } else {
+    return 0;
+  }
+}
+
 // Setting a counter to keep track of taskIds being distributed
-let taskIdCounter = ref<number>(0);
+let taskIdCounter = ref<number>(retrieveFinalTaskId());
 
 // Variables to hold the ref values for the input task field and for the stored tasks taken from props
 const inputTask = ref<string>('');
@@ -19,7 +38,8 @@ const addTask = () => {
   const newTask: Task ={
     name: inputTask.value,
     completed: false,
-    taskId: taskIdCounter.value
+    // Setting the counter of value + 1 means ids will always start on 1, which could be a mistake
+    taskId: taskIdCounter.value + 1
   }
   if (inputTask.value && inputTask.value.trim() !== '') {
     // If the input field is populated and does not have empty spaces, push the value to the storedTasks array
