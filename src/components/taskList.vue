@@ -14,7 +14,7 @@ const storedTasks = ref<Task[]>(props.storedTasks);
 const removeTask = (index:number) => {
   // Removing the task by finding the object on click and removing it from the storedTasks array of objects
   storedTasks.value.splice(index, 1);
-  // Updating localStorage to the new arr
+  // Updating localStorage to the modified array value
   localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
 }
 
@@ -23,7 +23,7 @@ const completeToggle = (index:number) => {
   // Locating the object based on the index taken from the click and setting it to complete = true if it is already false
   taskAtIndex.completed = !taskAtIndex.completed;
   storedTasks.value.splice(index, 1, taskAtIndex);
-  // Updating localStorage with the modified storedTasks array
+  // Updating localStorage with the updated storedTasks array
   localStorage.setItem("savedTasks", JSON.stringify(storedTasks.value));
 };
 
