@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import InputField from './components/InputField.vue'
 import TaskList from './components/TaskList.vue'
-import ListFilters from './components/ListFilters.vue'
 import { ref } from 'vue';
 
 // Exporting an interface so an array of objects containing different data types can be implemented across components
@@ -25,9 +24,6 @@ const storedTasks = ref<Task[]>(JSON.parse(localStorage.getItem('savedTasks') ||
   </header>
     <div class="inputContainer">
       <InputField :storedTasks="storedTasks"/>
-    </div>
-    <div class="filtersContainer">
-      <ListFilters></ListFilters>
     </div>
     <div class="taskListContainer">
       <TaskList :storedTasks="storedTasks"/>
