@@ -39,9 +39,9 @@ Run `npm run dev` to start the web application, which should be accessible on lo
 1. **Filter Tasks**
 
 - Add buttons or toggles to filter tasks by:
-    - [] All tasks
-    - [] Incomplete tasks
-    - [] Completed tasks
+    - [x] All tasks
+    - [x] Incomplete tasks
+    - [x] Completed tasks
 
 2. **Unit Tests:**
 
@@ -52,3 +52,7 @@ Run `npm run dev` to start the web application, which should be accessible on lo
 
 - There is zero support / catering for different screen sizes or mobile
 - The CSS is implemented on a global stylesheet instead of being scoped to Vue 3 components
+- The Filters sort correctly when clicked. However, removing or toggling list items as 'complete' or 'incomplete' results in weird behaviours, such as:
+    - The wrong list item being removed
+    - The wrong list items being deleted
+    - List items that were previously toggled as 'complete' or 'incomplete' and were removed from the list reappear when toggling a different list item..
