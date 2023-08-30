@@ -49,3 +49,6 @@ Run `npm run dev` to start the web application, which should be accessible on lo
     - [] Complete? Y/N
 
 ### Known issues
+
+- There is zero support / catering for different screen sizes or mobile
+- The CSS is implemented on a global stylesheet instead of being scoped to Vue 3 components

@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import { Task } from '../App.vue';
 
-
 // Registering props to this component
 const props = defineProps<{
   storedTasks: Task[]
@@ -31,6 +30,7 @@ const completeToggle = (index:number) => {
 
 <template>
   <div>
+
   <ul>
     <li v-for="(task, index) in storedTasks" :key="index" :class="{ taskItemActive: true, completedTask: task.completed }" :id:number="task.taskId">
       <div class="taskContent">

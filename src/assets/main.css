@@ -99,3 +99,36 @@ button {
     display: flex;
     justify-content: space-between;
 }
+
+.filtersContainer {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.filterList {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-between;
+}
+
+.allTasksCheckbox {
+    margin-right: 3em;
+    font-size: 25px;
+    font-family: rockwell;
+    color: black;
+}
+
+.completeTasksCheckbox {
+    margin-right: 3em;
+    font-size: 25px;
+    font-family: rockwell;
+    color: black;
+}
+
+.incompleteTasksCheckbox {
+    font-size: 25px;
+    font-family: rockwell;
+    color: black;
+}
