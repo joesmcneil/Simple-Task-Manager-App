@@ -36,13 +36,16 @@ Run `npm run dev` to start the web application, which should be accessible on lo
 
 ### Bonus tasks
 
-Bonus Task 1: Filter Tasks
+1. **Filter Tasks**
 
 - Add buttons or toggles to filter tasks by:
     - [] All tasks
     - [] Incomplete tasks
     - [] Completed tasks
 
-Bonus
+2. **Unit Tests:**
+
+  - Write unit tests for the main components using Vue's testing utilities.
+    - [] Complete? Y/N
 
 ### Known issues
