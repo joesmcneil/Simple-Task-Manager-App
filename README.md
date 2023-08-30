@@ -43,10 +43,12 @@ Run `npm run dev` to start the web application, which should be accessible on lo
     - [x] Incomplete tasks
     - [x] Completed tasks
 
+- Filter functionality has been separated into its own branch, as the functionality is largely broken *unhappy face* (issues are highlighted further below)
+
 2. **Unit Tests:**
 
 - Write unit tests for the main components using Vue's testing utilities.
-  - [] Complete? Y/N
+    - [] Complete? Y/N
 
 ### Known issues
 
