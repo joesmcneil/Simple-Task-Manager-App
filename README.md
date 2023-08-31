@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Simple Task Manager app is a web application that allows users to manage their tasks my adding them, marking them as complete and removing them.
+Simple Task Manager app is a web application that allows users to manage their tasks my adding new tasks, marking them as complete and removing them.
 
 ## Setup and startup
 
@@ -56,5 +56,5 @@ Run `npm run test` to run the test suite.
 
 - There is zero support / catering for different screen sizes or mobile
 - The CSS is implemented on a global stylesheet instead of being scoped to Vue 3 components
-- The filter probably could have been its own component and it was to begin with. They were merged in a short-term fix as I was having issues completing the functionality - *unhappy face*
+- The filter probably could have been its own component and it was to begin with. They were merged in a short-term fix as I was having issues completing the filter functionality - *unhappy face*
 
