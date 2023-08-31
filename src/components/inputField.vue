@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Task } from '../App.vue';
+import type { Task } from '../App.vue';
 
 // Registering props to this component
 const props = defineProps<{
