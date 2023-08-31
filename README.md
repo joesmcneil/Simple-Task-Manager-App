@@ -43,8 +43,6 @@ Run `npm run dev` to start the web application, which should be accessible on lo
     - [x] Incomplete tasks
     - [x] Completed tasks
 
-- Filter functionality has been separated into its own branch, as the functionality is largely broken *unhappy face* (issues are highlighted further below)
-
 2. **Unit Tests:**
 
 - Write unit tests for the main components using Vue's testing utilities.
@@ -54,9 +52,5 @@ Run `npm run dev` to start the web application, which should be accessible on lo
 
 - There is zero support / catering for different screen sizes or mobile
 - The CSS is implemented on a global stylesheet instead of being scoped to Vue 3 components
-- The Filters sort correctly when clicked. However, removing or toggling list items as 'complete' or 'incomplete' results in weird behaviours, such as:
-    - The wrong list items being removed
-    - The wrong list items being deleted
-    - List items that were previously toggled as 'complete' or 'incomplete' and were removed from the list reappear when toggling a different list item..
-    - List items that were previously deleted coming back from the dead and reappearing in local storage
-    - The filter tickboxes do not stay ticked upon page refresh, resulting in 'reverse' filtering
+- The filter probably could have been its own component and it was to begin with. They were merged in a short-term fix as I was having issues completing the functionality *unhappy face*
+
