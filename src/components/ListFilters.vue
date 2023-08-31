@@ -13,7 +13,7 @@ const filterSet = (filter:string) => {
   console.log('filterStatus changed:', setFilter);
   window.location.reload();
 });
-
+(console.log('test'))
 };
 
 </script>
