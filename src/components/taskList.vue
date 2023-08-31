@@ -10,6 +10,9 @@ const props = defineProps<{
 // Getting the filter status set in local storage
 const selectedFilter = ref(localStorage.getItem('filterStatus') || 'None');
 
+// Initialising the list of tasks already submitted using props
+const storedTasks = ref<Task[]>(props.storedTasks);
+
 // Setting the filter based on it's current filter status
 const filterSet = (filter:string) => {
     const currentFilter = localStorage.getItem('filterStatus');
@@ -19,9 +22,6 @@ const filterSet = (filter:string) => {
     : 'None';
   localStorage.setItem('filterStatus', setFilter);
 };
-
-// Initialising the list of tasks already submitted using props
-const storedTasks = ref<Task[]>(props.storedTasks);
 
 // Generating css classes dynamically based on the selected filter
 const taskClasses = computed(() => {

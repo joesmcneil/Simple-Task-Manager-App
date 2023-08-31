@@ -10,6 +10,8 @@ Run the `npm install` command to install all necessary packages.
 
 Run `npm run dev` to start the web application, which should be accessible on localhost using: http://127.0.0.1:5173/
 
+Run `npm run test` to run the test suite.
+
 ### Requirements
 
 1. **Add Task**
@@ -48,9 +50,11 @@ Run `npm run dev` to start the web application, which should be accessible on lo
 - Write unit tests for the main components using Vue's testing utilities.
     - [] Complete? Y/N
 
+- There are unit tests but none of them are *meaningful* as I ran out of time to properly learn Vue 3's testing utilities
+
 ### Known issues
 
 - There is zero support / catering for different screen sizes or mobile
 - The CSS is implemented on a global stylesheet instead of being scoped to Vue 3 components
-- The filter probably could have been its own component and it was to begin with. They were merged in a short-term fix as I was having issues completing the functionality *unhappy face*
+- The filter probably could have been its own component and it was to begin with. They were merged in a short-term fix as I was having issues completing the functionality - *unhappy face*
 
