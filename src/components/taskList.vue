@@ -1,14 +1,41 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import type { Task } from '../App.vue';
 
 // Registering props to this component
 const props = defineProps<{
-  storedTasks: Task[]
+  storedTasks: Task[],
 }>();
+
+// Getting the filter status set in local storage
+const selectedFilter = ref(localStorage.getItem('filterStatus') || 'None');
+
+// Setting the filter based on it's current filter status
+const filterSet = (filter:string) => {
+    const currentFilter = localStorage.getItem('filterStatus');
+    // Checking if the filter matches the currently set filter and if it matches any of the set statuses. If true, set the new filter status.
+    const setFilter = (filter === 'All' && filter !== currentFilter) || (filter === 'Complete' && filter !== currentFilter) || (filter === 'Incomplete' && filter!== currentFilter)
+    ? filter
+    : 'None';
+  localStorage.setItem('filterStatus', setFilter);
+};
 
 // Initialising the list of tasks already submitted using props
 const storedTasks = ref<Task[]>(props.storedTasks);
+
+// Generating css classes dynamically based on the selected filter
+const taskClasses = computed(() => {
+  return (task: Task) => {
+    return {
+      taskItem: true,
+      completedTask: task.completed,
+      incompleteTask: !task.completed,
+      // Assign the hideTask class to hide the list items whose 'completed' status does not match the currently selected filter
+      hideTask: (selectedFilter.value === 'Complete' && !task.completed) ||
+                (selectedFilter.value === 'Incomplete' && task.completed)
+    };
+  };
+});
 
 const removeTask = (index:number) => {
   // Removing the task by finding the object on click and removing it from the storedTasks array of objects
@@ -30,9 +57,25 @@ const completeToggle = (index:number) => {
 
 <template>
   <div>
-
+    <div class="filtersContainer">
+    <div class="filterList">
+      <div class="allTasksRadioButton">
+        <input type="radio" @click="filterSet('All')" name="taskFilter" value="All" v-model="selectedFilter">
+        <label for="allTasks">All tasks</label>
+      </div>
+      <div class="completeTasksRadioButton">
+        <input type="radio" @click="filterSet('Complete')" name="taskFilter" value="Complete" v-model="selectedFilter">
+        <label for="completedTasks">Completed tasks</label>
+      </div>
+      <div class="incompleteTasksRadioButton">
+        <input type="radio" @click="filterSet('Incomplete')" name="taskFilter" value="Incomplete" v-model="selectedFilter">
+        <label for="incompleteTasks">Incomplete tasks</label>
+      </div>
+      </div>
+    </div>
   <ul>
-    <li v-for="(task, index) in storedTasks" :key="index" :class="{ taskItemActive: true, completedTask: task.completed }" :id:number="task.taskId">
+    <li v-for="(task, index) in storedTasks" :key="index"
+          :class="taskClasses(task)">
       <div class="taskContent">
         {{ task.name }}
         <div class="listButtons">
@@ -49,5 +92,4 @@ const completeToggle = (index:number) => {
 </template>
 
 <style scoped>
-
 </style>
